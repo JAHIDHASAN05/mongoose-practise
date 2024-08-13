@@ -38,7 +38,8 @@ const studentSchema= new Schema<IStudent>({
     profileImg : {type : String, required: true},
     isActive : {
         type: String,
-        enum: ['active', 'inactive']
+        enum: ['active', 'inactive'],
+        default :'active'
     }
 
 })

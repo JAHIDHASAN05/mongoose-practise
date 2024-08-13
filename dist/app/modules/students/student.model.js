@@ -36,7 +36,8 @@ const studentSchema = new mongoose_1.Schema({
     profileImg: { type: String, required: true },
     isActive: {
         type: String,
-        enum: ['active', 'inactive']
+        enum: ['active', 'inactive'],
+        default: 'active'
     }
 });
 exports.Student = (0, mongoose_1.model)('student', studentSchema);
