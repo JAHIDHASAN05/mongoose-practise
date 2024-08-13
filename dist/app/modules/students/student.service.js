@@ -19,7 +19,12 @@ const getAllStudentFromDB = () => __awaiter(void 0, void 0, void 0, function* ()
     const result = yield student_model_1.Student.find();
     return result;
 });
+const getSingleStudentFromDB = (StudentId) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield student_model_1.Student.findOne({ id: StudentId });
+    return result;
+});
 exports.StudentService = {
     createStudentIntoDB,
-    getAllStudentFromDB
+    getAllStudentFromDB,
+    getSingleStudentFromDB
 };

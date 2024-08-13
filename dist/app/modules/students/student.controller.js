@@ -14,6 +14,7 @@ const student_service_1 = require("./student.service");
 const createStudent = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const student = req.body.student;
+        console.log(student);
         const result = yield student_service_1.StudentService.createStudentIntoDB(student);
         res.status(200).json({
             success: true,
@@ -26,14 +27,34 @@ const createStudent = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 const getAllStudents = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield student_service_1.StudentService.getAllStudentFromDB();
-    res.status(200).json({
-        sucess: true,
-        message: 'Students are retrieve succesfully',
-        data: result
-    });
+    try {
+        const result = yield student_service_1.StudentService.getAllStudentFromDB();
+        res.status(200).json({
+            sucess: true,
+            message: 'Students are retrieve succesfully',
+            data: result
+        });
+    }
+    catch (error) {
+        console.log(error);
+    }
+});
+const getSingleStudent = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const StudentId = req.params.StudentId;
+        const result = yield student_service_1.StudentService.getSingleStudentFromDB(StudentId);
+        res.status(200).json({
+            success: true,
+            message: 'student is retrieve succesfully',
+            data: result
+        });
+    }
+    catch (error) {
+        console.log(error);
+    }
 });
 exports.StudentController = {
     createStudent,
-    getAllStudents
+    getAllStudents,
+    getSingleStudent,
 };
