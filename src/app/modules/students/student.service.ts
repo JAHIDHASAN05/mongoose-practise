@@ -8,7 +8,7 @@ const createStudentIntoDB= async (student:IStudent )=>{
     // const result = await StaticStudentInstance.save()
 
     const StaticStudentInstance = new Student(student)
-    const result
+    const result = await StaticStudentInstance.save()
 
 
 
