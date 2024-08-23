@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import { IStudent } from "./student.interface";
+import { IStudent, studentInstanceModel, studentInstanceMethods } from "./student.interface";
 
 
 
@@ -18,7 +18,7 @@ const UserNameSchema = new Schema({
   },
 });
 
-const studentSchema = new Schema<IStudent>({
+const studentSchema = new Schema<IStudent, studentInstanceModel, studentInstanceMethods>({
   id: { 
     type: String,
     required: [true, 'Student ID is required.'], 

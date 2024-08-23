@@ -1,3 +1,5 @@
+import { Model } from "mongoose";
+
 export interface IGuardian {
   fatherName: string;
   fatherOcupation: string;
@@ -36,3 +38,10 @@ export interface IStudent {
   profileImg?: string;
   isActive: "active" | "inactive";
 }
+
+
+export type studentInstanceMethods ={
+  isStudentExist(id:string): Promise<IStudent>
+}
+
+export type studentInstanceModel = Model<IStudent, Record<string, never>, studentInstanceMethods>;
